@@ -1,7 +1,13 @@
 class PebbleQemu < Formula
   homepage "https://github.com/pebble/qemu"
-  url "https://github.com/pebble/qemu.git"
+  url "git@github.com:pebble/qemu-dev.git", :using => :git
   version "2.1.1"
+
+  option "with-public-repo", "Build using the public Pebble QEMU repo"
+
+  if build.with? "public-repo"
+    url "git@github.com:pebble/qemu.git", :using => :git
+  end
 
   depends_on "pkg-config" => :build
   depends_on "glib" => :build
