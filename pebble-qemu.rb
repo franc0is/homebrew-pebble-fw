@@ -1,13 +1,9 @@
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!  
 class PebbleQemu < Formula
-  homepage ""
+  homepage "https://github.com/pebble/qemu"
   url "https://github.com/pebble/qemu.git"
-  version "head"
-  sha256 ""
+  version "2.1.1"
 
-  depends_on "pkgconfig" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -20,6 +16,6 @@ class PebbleQemu < Formula
                           "--extra-cflags=-DSTM32_UART_NO_BAUD_DELAY",
                           "--prefix=#{prefix}"
 
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
 end
