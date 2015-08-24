@@ -20,7 +20,8 @@ class PebbleQemu < Formula
                           "--enable-debug",
                           '--target-list=arm-softmmu',
                           "--extra-cflags=-DSTM32_UART_NO_BAUD_DELAY",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--disable-mouse"
 
     system "make", "install"
   end
