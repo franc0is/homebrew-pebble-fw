@@ -1,8 +1,6 @@
-require 'formula'
-
 class Arcanist < Formula
   homepage 'http://phabricator.org/'
-  url 'https://github.com/facebook/arcanist/tarball/master'
+  url 'https://github.com/facebook/arcanist/archive/master.tar.gz'
   version '0.1'
 
   depends_on 'libphutil'
@@ -14,7 +12,7 @@ class Arcanist < Formula
     var = `/usr/local/bin/brew --prefix libphutil`.strip
 
     # Create the path where arcanist will look for libphutil
-    FileUtils.mkdir_p 'externals/includes'
+    mkdir_p 'externals/includes'
 
     # Link arcanist to libphutil
     cd "externals/includes" do
@@ -27,7 +25,7 @@ class Arcanist < Formula
     prefix.install Dir['*']
   end
 
-  def test
+  test do
     system "true"
   end
 end

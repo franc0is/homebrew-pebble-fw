@@ -1,11 +1,6 @@
-require 'formula'
-
-# Documentation: https://github.com/mxcl/homebrew/wiki/Formula-Cookbook
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Libphutil < Formula
   homepage 'http://phabricator.org/'
-  url 'https://github.com/facebook/libphutil/tarball/master'
+  url 'https://github.com/facebook/libphutil/archive/master.tar.gz'
   version '0.1'
 
   keg_only 'Only used as a library for arcanist'
@@ -16,7 +11,7 @@ class Libphutil < Formula
     prefix.install Dir['*']
   end
 
-  def test
+  test do
     system "true"
   end
 end

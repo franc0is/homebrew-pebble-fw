@@ -1,13 +1,15 @@
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!  
 class PebbleQemu < Formula
-  homepage ""
-  url "https://github.com/pebble/qemu.git"
-  version "head"
-  sha256 ""
+  homepage "https://github.com/pebble/qemu"
+  url "git@github.com:pebble/qemu-dev.git", :using => :git
+  version "2.1.1"
 
-  depends_on "pkgconfig" => :build
+  option "with-public-repo", "Build using the public Pebble QEMU repo"
+
+  if build.with? "public-repo"
+    url "git@github.com:pebble/qemu.git", :using => :git
+  end
+
+  depends_on "pkg-config" => :build
   depends_on "glib" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -18,8 +20,9 @@ class PebbleQemu < Formula
                           "--enable-debug",
                           '--target-list=arm-softmmu',
                           "--extra-cflags=-DSTM32_UART_NO_BAUD_DELAY",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--disable-mouse"
 
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
 end
