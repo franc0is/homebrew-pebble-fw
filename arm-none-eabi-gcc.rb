@@ -10,7 +10,7 @@ class ArmNoneEabiGcc < Formula
   end
 
   def install
-    cp_r %w(arm-none-eabi, bin, lib, share), "#{prefix}/", :verbose => true
+    prefix.install 'arm-none-eabi', 'bin', 'lib', 'share'
     resource('sources').stage {
       system 'tar', '-xf', 'src/gdb.tar.bz2'
       Dir.chdir "gdb"
