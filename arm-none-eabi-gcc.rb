@@ -9,12 +9,23 @@ class ArmNoneEabiGcc < Formula
     sha256 "5c0843c5e4897ab3379523c2094208c0a7192a74d5bf25a9e545295696563e5a"
   end
 
+  option "with-brewed-python", "Use the Homebrew version of Python"
+
   def install
     prefix.install 'arm-none-eabi', 'bin', 'lib', 'share'
     resource('sources').stage {
       system 'tar', '-xf', 'src/gdb.tar.bz2'
       Dir.chdir "gdb"
-      system './configure', "--prefix=#{prefix}", '--target=arm-none-eabi', "--with-python=yes"
+      args = [
+        "--prefix=#{prefix}",
+        "--target=arm-none-eabi"
+      ]
+      if build.with? 'brewed-python'
+        args << "--with-python=#{HOMEBREW_PREFIX}"
+      else
+        args << "--with-python=yes"
+      end
+      system './configure', *args
       system 'make'
       system 'make install'
     }
