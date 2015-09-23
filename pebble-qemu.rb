@@ -3,6 +3,11 @@ class PebbleQemu < Formula
   url "git@github.com:pebble/qemu-dev.git", :using => :git
   version "2.1.1"
 
+  bottle do
+    root_url "http://pebble-homebrew.s3.amazonaws.com"
+    sha256 "863f8d5249ce567870fa7b3ec1fea35d3f0d82b5b6cb057d690159d91904c703" => :yosemite
+  end
+
   option "with-public-repo", "Build using the public Pebble QEMU repo"
 
   if build.with? "public-repo"
