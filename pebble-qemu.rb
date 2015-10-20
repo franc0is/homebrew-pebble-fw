@@ -1,6 +1,8 @@
 class PebbleQemu < Formula
   homepage "https://github.com/pebble/qemu"
-  url "git@github.com:pebble/qemu-dev.git", :using => :git
+  url "git@github.com:pebble/qemu-dev.git", :revision => "74ee1bd", :using => :git
+  head "git@github.com:pebble/qemu-dev.git", :using => :git
+
   version "2.1.1"
 
   bottle do
