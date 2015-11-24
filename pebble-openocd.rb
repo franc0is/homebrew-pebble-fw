@@ -3,9 +3,11 @@ class PebbleOpenocd < Formula
   url "https://github.com/pebble/openocd.git", :branch => "pebble_fork"
   version "0.9"
 
+
   bottle do
+    revision 1
     root_url "http://pebble-homebrew.s3.amazonaws.com"
-    sha256 "bb3507813cce8e307b1823f32c6672a9b30190f55220cb8a9e3397d024b754ed" => :yosemite
+    sha256 "e8742423352c0793c72d4f895b18e263d36d5e96238c838f99814fb4de6825cb" => :el_capitan
   end
 
   depends_on "autoconf" => :build
