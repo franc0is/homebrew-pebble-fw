@@ -1,13 +1,12 @@
 class PebbleOpenocd < Formula
   homepage "https://github.com/pebble/openocd"
-  url "https://github.com/pebble/openocd.git", :branch => "pebble_fork"
+  url "git@github.com:pebble/openocd-dev.git", :using => :git, :branch => "pebble_fork"
   version "0.9"
 
+  option "with-public-repo", "Build using the public Pebble OpenOCD repo"
 
-  bottle do
-    revision 1
-    root_url "http://pebble-homebrew.s3.amazonaws.com"
-    sha256 "e8742423352c0793c72d4f895b18e263d36d5e96238c838f99814fb4de6825cb" => :el_capitan
+  if build.with? "public-repo"
+    url "git@github.com:pebble/openocd.git", :using => :git, :branch => "pebble_fork"
   end
 
   depends_on "autoconf" => :build
