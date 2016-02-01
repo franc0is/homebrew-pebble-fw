@@ -1,12 +1,12 @@
 class ArmNoneEabiGcc < Formula
   homepage "https://launchpad.net/gcc-arm-embedded"
-  version "20140609"
+  version "20140805"
   url "https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-mac.tar.bz2"
   sha256 "6b30901738b09a8d22fdfff99e991217444b80ac492a6163af5c06a3baaa3487"
 
   bottle do
-    root_url "http://pebble-homebrew.s3.amazonaws.com"
-    sha256 "02ed7a6e8aa02e5794c8e822ac0bc64bd7497a78e4237ba5db3f7102e376b967" => :yosemite
+    revision 1
+    sha256 "96430573d79b714c67092efdc0793a9d731eedba2f86481bb3df540c306be688" => :el_capitan
   end
 
   resource "sources" do
