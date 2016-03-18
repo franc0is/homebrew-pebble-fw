@@ -1,17 +1,17 @@
 class ArmNoneEabiGcc < Formula
   homepage "https://launchpad.net/gcc-arm-embedded"
-  version "20140609"
-  url "https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q2-update/+download/gcc-arm-none-eabi-4_8-2014q2-20140609-mac.tar.bz2"
-  sha256 "dbfa2170e67f30aad349581b7db8ce61f257c3a51e32943ec12a384b1dcd7cf9"
+  version "20140805"
+  url "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2"
+  sha256 "a6353db31face60c2091c2c84c902fc4d566decd1aa04884cd822c383d13c9fa"
 
   bottle do
-    root_url "http://pebble-homebrew.s3.amazonaws.com"
-    sha256 "02ed7a6e8aa02e5794c8e822ac0bc64bd7497a78e4237ba5db3f7102e376b967" => :yosemite
+    revision 1
+    sha256 "96430573d79b714c67092efdc0793a9d731eedba2f86481bb3df540c306be688" => :el_capitan
   end
 
   resource "sources" do
-    url "https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q2-update/+download/gcc-arm-none-eabi-4_8-2014q2-20140609-src.tar.bz2"
-    sha256 "5c0843c5e4897ab3379523c2094208c0a7192a74d5bf25a9e545295696563e5a"
+    url "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-src.tar.bz2"
+    sha256 "596c577b44e29d5b4b613493e8132b85159bfee14a5141db09d20bf3739e27e9"
   end
 
   option "with-brewed-python", "Use the Homebrew version of Python"

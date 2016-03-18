@@ -1,12 +1,9 @@
-class PebbleQemu < Formula
+class PebbleQemuDev < Formula
   homepage "https://github.com/pebble/qemu"
-  url "git@github.com:pebble/qemu-dev.git", :using => :git
-  version "2.1.1"
+  url "git@github.com:pebble/qemu-dev.git", :revision => "74ee1bd", :using => :git
+  head "git@github.com:pebble/qemu-dev.git", :using => :git
 
-  bottle do
-    root_url "http://pebble-homebrew.s3.amazonaws.com"
-    sha256 "863f8d5249ce567870fa7b3ec1fea35d3f0d82b5b6cb057d690159d91904c703" => :yosemite
-  end
+  version "2.1.1"
 
   option "with-public-repo", "Build using the public Pebble QEMU repo"
 
@@ -19,6 +16,7 @@ class PebbleQemu < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pixman" => :build
 
   def install
     system "./configure", "--disable-werror",
